@@ -60,7 +60,9 @@ public class LinkedList<T> {
 
     //this method deletes data at the given index of the linked list
     public void deleteAt(int index) {
-        if (index==0) {
+        if (head==null) {
+            System.out.println("nothing in the list");
+        } else if (index==0) {
             System.out.println(head.data + " deleted from location " + (index+1));
             head = head.next;
         } else {
@@ -76,6 +78,31 @@ public class LinkedList<T> {
             } catch (NullPointerException exception) {
                 System.out.println("Given index is out of reach, not deleted!");
             }
+        }
+    }
+
+    //this method deletes data from the linked list
+    public void delete(T data) {
+        Node<T> tempNode = head;
+        int positionCounter = 1;
+
+        if (tempNode==null) {
+            System.out.println("nothing in the list");
+        } else if (tempNode.data==data) {
+            System.out.println(head.data + " deleted from location " + positionCounter);
+            head = head.next;
+        } else {
+            while (tempNode.next!=null) {
+                Node<T> deletedNode = tempNode.next;
+                positionCounter++;
+                if (deletedNode.data == data) {
+                    System.out.println(deletedNode.data + " deleted from location " + positionCounter);
+                    tempNode.next = deletedNode.next;
+                    return;
+                }
+                tempNode = tempNode.next;
+            }
+            System.out.print("List has no such data!");
         }
     }
 
