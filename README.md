@@ -13,24 +13,18 @@ As part of my ongoing journey in learning Data Structures and Algorithms (DSA) u
   - **Doubly Linked List:** Each node contains data, a reference to the next node, and a reference to the previous node.
   - **Circular Linked List:** The last node points back to the first node, forming a circle.
 - **Time Complexity:** The time complexity of operations on a Linked List can vary depending on the type of operation and the specific variant of the Linked List (Singly, Doubly, or Circular). Here's a breakdown:
-  - **Accessing an Element:**
-Singly/Doubly/Circular Linked List: O(n)
-To access an element at a specific index, the list must be traversed from the head (or tail, in the case of a Doubly Linked List), making it a linear time operation.
-  - **Searching for an Element:**
-Singly/Doubly/Circular Linked List: O(n)
-Similar to accessing, searching requires traversing the list, so it also takes linear time.
-  - **Insertion:**
-At the Beginning (Head): O(1)
-Inserting a new element at the beginning of the list is a constant time operation, as it only involves updating pointers.
-At the End (Tail): O(1) for Doubly Linked List and Circular Linked List if the tail pointer is maintained; O(n) for Singly Linked List without a tail pointer.
-At a Specific Position: O(n)
-To insert at a specific position, the list must be traversed to that position, leading to linear time complexity.
-  - **Deletion:**
-From the Beginning (Head): O(1)
-Deleting the first element is a constant time operation.
-From the End (Tail): O(1) for Doubly Linked List and Circular Linked List if the tail pointer is maintained; O(n) for Singly Linked List without a tail pointer.
-From a Specific Position: O(n)
-Similar to insertion, deletion from a specific position requires traversal, resulting in linear time complexity.
+  - **Accessing an Element:**<br>
+Singly/Doubly/Circular Linked List - O(n) To access an element at a specific index, the list must be traversed from the head (or tail, in the case of a Doubly Linked List), making it a linear time operation.
+  - **Searching for an Element:**<br>
+Singly/Doubly/Circular Linked List - O(n) Similar to accessing, searching requires traversing the list, so it also takes linear time.
+  - **Insertion:**<br>
+At the Beginning (Head) - O(1) Inserting a new element at the beginning of the list is a constant time operation, as it only involves updating pointers.<br>
+At the End (Tail) - O(1) for Doubly Linked List and Circular Linked List if the tail pointer is maintained; O(n) for Singly Linked List without a tail pointer.<br>
+At a Specific Position - O(n) To insert at a specific position, the list must be traversed to that position, leading to linear time complexity.<br>
+  - **Deletion:**<br>
+From the Beginning (Head) - O(1) Deleting the first element is a constant time operation.<br>
+From the End (Tail) - O(1) for Doubly Linked List and Circular Linked List if the tail pointer is maintained; O(n) for Singly Linked List without a tail pointer.<br>
+From a Specific Position - O(n) Similar to insertion, deletion from a specific position requires traversal, resulting in linear time complexity.<br>
 - **Summary:**
 Access/Search: O(n)
 Insertion/Deletion at Head or Tail (with tail pointer): O(1)
