@@ -1,6 +1,6 @@
-package com.project;
+package concept.sll;
 
-public class Node<D> {
+class Node<D> {
     D data;
     Node<D> next; //pointing for the next node
 }

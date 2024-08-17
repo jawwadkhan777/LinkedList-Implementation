@@ -1,11 +1,11 @@
-package com.project;
+package concept.dll;
 
-public class LinkedList<T> {
+public class DoublyLinkedList<T> {
     Node<T> head;
 
-    public LinkedList() {
-        System.out.println("Linked List Implementation:");
-        System.out.println("---------------------------");
+    public DoublyLinkedList() {
+        System.out.println("Doubly Linked List Implementation:");
+        System.out.println("----------------------------------");
     }
 
     // this method inserts value at the end of the linked list
@@ -13,48 +13,54 @@ public class LinkedList<T> {
         Node<T> node = new Node<>();
         node.data = data;
         node.next = null;
+//        node.previous = null;
 
-        if (head == null) {
-            head =  node;  //respective node assigned to head as a starting node
+        if(head==null) {
+            node.previous = null;
+            head = node;
         } else {
-            Node<T> n = head;
-            while(n.next!=null) {
-                n = n.next;
+            Node tempNode = head;
+            while (tempNode.next!=null) {
+                tempNode = tempNode.next;
             }
-            n.next = node;
+            tempNode.next = node;
+            node.previous = tempNode;
         }
     }
 
     //this method inserts value at the start of the linked list
-    public void insertAtBegin(T data) {
+    public void insertAtStart(T data) {
         Node<T> node = new Node<>();
         node.data = data;
+        node.previous = null;
         node.next = head;
+        if (head!=null) {
+            head.previous = node;
+        }
         head = node;
-
     }
 
     //this method inserts value at the given index of the linked list
     public void insertAt(int index, T data) {
-
         if (index==0) {
-            insertAtBegin(data);
+            insertAtStart(data);
         } else {
             Node<T> node = new Node<>();
             node.data = data;
-//            node.next = null;
-            Node<T> n = head;
+            Node<T> tempNode = head;
             try {
                 for (int i = 1; i < index; i++) {
-                    n = n.next;
+                    tempNode = tempNode.next;
                 }
-                node.next = n.next;
-                n.next = node;
-            } catch (NullPointerException exception) {
-//                System.out.println(exception.getMessage());
+                node.next = tempNode.next;
+                node.previous = tempNode;
+                tempNode.next = node;
+                if (node.next!=null) {
+                    node.next.previous = node;
+                }
+            }catch (NullPointerException exception) {
                 System.out.println("Given index is out of reach, not added!");
             }
-
         }
     }
 
@@ -63,16 +69,19 @@ public class LinkedList<T> {
         if (index==0) {
             System.out.println(head.data + " deleted from location " + (index+1));
             head = head.next;
+            head.next.previous = null;
         } else {
-            Node<T> n = head;
+            Node<T> tempNode = head;
             try {
                 for (int i = 1; i < index; i++) {
-                    n = n.next;
+                    tempNode = tempNode.next;
                 }
-                Node<T> n1 = n.next;
-                n.next = n1.next;
-                System.out.println(n1.data + " deleted from location " + (index + 1));
-                n1 = null; //nullify the object
+                Node<T> deletedNode = tempNode.next;
+                tempNode.next = deletedNode.next;
+                if (deletedNode.next != null) {
+                    deletedNode.next.previous = tempNode;
+                }
+                System.out.println(deletedNode.data + " deleted from location " + (index + 1));
             } catch (NullPointerException exception) {
                 System.out.println("Given index is out of reach, not deleted!");
             }
@@ -81,10 +90,19 @@ public class LinkedList<T> {
 
     //this method prints the values of linked list
     public void display() {
-        Node<T> node = head;
-        while (node!=null) {
-            System.out.print(node.data + " -> ");
-            node = node.next;
+        Node<T> tempNode = head;
+        Node<T> reverseNode = null;
+        System.out.print("null");
+        while (tempNode!=null) {
+            System.out.print(" <- " + tempNode.data + " -> ");
+            reverseNode = tempNode;
+            tempNode = tempNode.next;
+        }
+        System.out.println("null");
+        System.out.print("List in reverse order: null");
+        while (reverseNode!=null) {
+            System.out.print(" <- " + reverseNode.data + " -> ");
+            reverseNode = reverseNode.previous;
         }
         System.out.println("null");
     }
