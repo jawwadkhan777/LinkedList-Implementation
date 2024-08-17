@@ -1,5 +1,6 @@
 package concept;//package com;
 
+import concept.cll.CircularLinkedList;
 import concept.dll.DoublyLinkedList;
 import concept.sll.LinkedList;
 
@@ -28,7 +29,10 @@ public class Main {
         lList.deleteAt(7);
         lList.display();
 
-        lList.search(11);
+        lList.delete(11);
+        lList.display();
+
+        lList.search(7);
 
 
         System.out.println(".................................................");
@@ -53,5 +57,32 @@ public class Main {
         dList.display();
 
         dList.search(10);
+
+
+        System.out.println(".................................................");
+
+
+        CircularLinkedList<Integer> cList = new CircularLinkedList<>();
+
+        cList.display();
+
+        cList.delete(10);
+
+        cList.insert(7);
+        cList.insert(1);
+        cList.insert(11);
+        cList.display();
+
+        cList.insertAtBegin(33);
+        cList.display();
+
+        cList.insertAt(3, 55);
+        cList.display();
+
+        cList.delete(1);
+        cList.display();
+
+        cList.search(33);
+
     }
 }
