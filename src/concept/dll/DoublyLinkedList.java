@@ -93,14 +93,22 @@ public class DoublyLinkedList<T> {
     //this method prints the values of linked list
     public void display() {
         Node<T> tempNode = head;
-        Node<T> reverseNode = null;
         System.out.print("null");
         while (tempNode!=null) {
             System.out.print(" <- " + tempNode.data + " -> ");
-            reverseNode = tempNode;
             tempNode = tempNode.next;
         }
         System.out.println("null");
+    }
+
+    public void reverse() {
+        Node<T> tempNode = head;
+        Node<T> reverseNode = null;
+        while (tempNode!=null) {
+            reverseNode = tempNode;
+            tempNode = tempNode.next;
+        }
+
         System.out.print("List in reverse order: null");
         while (reverseNode!=null) {
             System.out.print(" <- " + reverseNode.data + " -> ");
