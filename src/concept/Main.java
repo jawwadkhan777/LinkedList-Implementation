@@ -10,17 +10,18 @@ public class Main {
         lList.insert(5);
         lList.insert(7);
         lList.insert(11);
-
         lList.display();
 
         lList.insertAtBegin(2);
-
         lList.display();
 
         lList.insertAt(2, 6);
-        lList.insertAt(0, 77);
-        lList.insertAt(8, 15);
+        lList.display();
 
+        lList.insertAt(0, 77);
+        lList.display();
+
+        lList.insertAt(8, 15);
         lList.display();
 
         lList.deleteAt(0);
@@ -43,6 +44,8 @@ public class Main {
         dList.insert(2);
         dList.insert(10);
         dList.display();
+
+        dList.reverse();
 
         dList.insertAtStart(77);
         dList.display();
