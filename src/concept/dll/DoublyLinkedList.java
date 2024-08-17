@@ -66,7 +66,9 @@ public class DoublyLinkedList<T> {
 
     //this method deletes data at the given index of the linked list
     public void deleteAt(int index) {
-        if (index==0) {
+        if (head==null) {
+            System.out.println("nothing in the list");
+        } else if (index==0) {
             System.out.println(head.data + " deleted from location " + (index+1));
             head = head.next;
             head.next.previous = null;
